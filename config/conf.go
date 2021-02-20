@@ -9,8 +9,9 @@ import (
 
 const (
 	SERVER_ERROR     = "{SE}"
-	VERIFY_FAILED    = "{SF}"
-	VERIFY_SUCCESSED = "{SS}"
+	VERIFY_FAILED    = "{VF}"
+	VERIFY_SUCCESSED = "{VS}"
+	// length of SERVER_ERROR\VERIFY_FAILED\VERIFY_SUCCESSED must be 4
 )
 
 type Tunnel struct {
