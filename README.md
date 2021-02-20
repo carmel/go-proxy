@@ -1,4 +1,6 @@
 # go-proxy
+[中文版](./README_zh.md)
+
 The intranet penetration implemented by golang is improved based on [IntranetPenetration](github.com/alongL/IntranetPenetration).
 
 
