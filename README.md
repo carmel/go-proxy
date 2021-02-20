@@ -1,7 +1,7 @@
 # go-proxy
 [中文版](./README_zh.md)
 
-The intranet penetration implemented by golang is improved based on [IntranetPenetration](github.com/alongL/IntranetPenetration).
+The intranet penetration implemented by golang is improved based on [IntranetPenetration](https://github.com/alongL/IntranetPenetration).
 
 
 High-performance http proxy server, the main application and intranet penetration. Support multi-site configuration, automatic reconnection of client and server connection interruption, multiple transmission, greatly improve request processing speed, written in go language, no third-party dependency, tested memory footprint, only 10m memory in normal scenarios .

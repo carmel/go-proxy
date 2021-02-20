@@ -1,5 +1,5 @@
 # go-proxy
-golang实现的内网穿透，基于[IntranetPenetration](github.com/alongL/IntranetPenetration)有所改进。
+golang实现的内网穿透，基于[IntranetPenetration](https://github.com/alongL/IntranetPenetration)有所改进。
 
 
 高性能http代理服务器，主要应用与内网穿透。支持多站点配置、客户端与服务端连接中断自动重连，多路传输，大大的提高请求处理速度，go语言编写，无第三方依赖，经过测试内存占用小，普通场景下，仅占用10m内存。
