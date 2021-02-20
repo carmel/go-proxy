@@ -1,0 +1,9 @@
+server-addr: 23.23.23.23:9099
+token: 88888888
+max-conn: 1
+domain-as-proto: false
+tunnel:
+  - domain: 23.23.23.23
+    proto: 127.0.0.1:80
+  - domain: 192.168.3.9
+    proto: 127.0.0.1:80
