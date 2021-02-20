@@ -4,6 +4,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"flag"
+	"fmt"
 	cfg "go-proxy/config"
 	"go-proxy/tool"
 	"log"
@@ -86,6 +87,8 @@ func (c *TRPClient) process(conn net.Conn) error {
 		case cfg.SERVER_ERROR:
 			log.Println("The server returned an error.")
 		default:
+
+			fmt.Println(flags)
 			log.Println("The error cannot be resolved.")
 		}
 	}
@@ -98,7 +101,7 @@ func (c *TRPClient) deal(conn net.Conn) error {
 		log.Println(err)
 	}
 	nlen := binary.LittleEndian.Uint32(val)
-	log.Println("Received server data length: ", nlen)
+	log.Printf("Received server data length: %d \n", nlen)
 	if nlen <= 0 {
 		c.werror(conn)
 		return errors.New("Data length error")
@@ -115,7 +118,7 @@ func (c *TRPClient) deal(conn net.Conn) error {
 	}
 	req, err := tool.DecodeRequest(raw, conf.Tunnel)
 	if err != nil {
-		log.Println("DecodeRequest error, ", err)
+		log.Printf("DecodeRequest error: %s \n", err.Error())
 		c.werror(conn)
 		return err
 	}

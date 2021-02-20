@@ -27,7 +27,7 @@ import (
 func EncodeRequest(r *http.Request) ([]byte, error) {
 	raw := bytes.NewBuffer([]byte{})
 	// 写签名
-	_ = binary.Write(raw, binary.LittleEndian, []byte("sign"))
+	_ = binary.Write(raw, binary.LittleEndian, []byte(cfg.VERIFY_SUCCESSED))
 	reqBytes, err := httputil.DumpRequest(r, true)
 	if err != nil {
 		return nil, err
@@ -43,7 +43,7 @@ func EncodeRequest(r *http.Request) ([]byte, error) {
 }
 
 // 将字节转为request
-func DecodeRequest(data []byte, siteList []cfg.Tunnel) (*http.Request, error) {
+func DecodeRequest(data []byte, tunnel []cfg.Tunnel) (*http.Request, error) {
 	if len(data) <= 100 {
 		return nil, errors.New("The byte length to be decoded is too small.")
 	}
@@ -52,7 +52,7 @@ func DecodeRequest(data []byte, siteList []cfg.Tunnel) (*http.Request, error) {
 		return nil, err
 	}
 	str := strings.Split(req.Host, ":")
-	req.Host, err = getHost(str[0], siteList)
+	req.Host, err = getHost(str[0], tunnel)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +69,7 @@ func DecodeRequest(data []byte, siteList []cfg.Tunnel) (*http.Request, error) {
 //// 将response转为字节
 func EncodeResponse(r *http.Response, domainAsProto bool, siteList []cfg.Tunnel) ([]byte, error) {
 	raw := bytes.NewBuffer([]byte{})
-	_ = binary.Write(raw, binary.LittleEndian, []byte("sign"))
+	_ = binary.Write(raw, binary.LittleEndian, []byte(cfg.VERIFY_SUCCESSED))
 	respBytes, err := httputil.DumpResponse(r, true)
 	if domainAsProto {
 		respBytes = replaceHost(respBytes, siteList)

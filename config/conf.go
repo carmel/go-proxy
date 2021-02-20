@@ -8,9 +8,9 @@ import (
 )
 
 const (
-	SERVER_ERROR     = "{SERVER_ERROR}"
-	VERIFY_FAILED    = "{VERIFY_FAILED}"
-	VERIFY_SUCCESSED = "{VERIFY_SUCCESSED}"
+	SERVER_ERROR     = "{SE}"
+	VERIFY_FAILED    = "{SF}"
+	VERIFY_SUCCESSED = "{SS}"
 )
 
 type Tunnel struct {

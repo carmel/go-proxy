@@ -186,7 +186,7 @@ func (s *TRPServer) read(w http.ResponseWriter, conn net.Conn) error {
 		}
 		w.WriteHeader(resp.StatusCode)
 		_, _ = w.Write(bodyBytes)
-	case "msg0":
+	case cfg.SERVER_ERROR:
 		return nil
 	default:
 		log.Printf("Unable to resolve the error: %s\n", val)
