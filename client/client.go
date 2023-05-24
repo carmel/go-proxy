@@ -164,6 +164,7 @@ func (c *TRPClient) deal(conn net.Conn) error {
 }
 
 func main() {
+	flag.Parse()
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 	cfg.Init(*configPath, &conf)
 
